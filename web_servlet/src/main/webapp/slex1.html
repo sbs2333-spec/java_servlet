@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>게시판 등록</title>
+</head>
+<body>
+<!-- name 속성이 있는 것만 백엔드가 값을 받는다. -->	
+
+게시판 등록
+<form method="post" id="frm" action="http://172.30.1.44:8080/web_servlet/slex1.do">
+제목 : <input type="text" name="tt"><br>
+글쓴이 : <input type="text" name="mname"><br>
+내용 : <textarea name="content" rows="10" cols="60" placeholder="내용을 입력하세요"></textarea><br>
+비밀번호 : <input type="password" name="mpass"><br>
+<input type="button" value="글쓰기" onclick="members()">
+</form>
+
+</body>
+<script>
+	function members(){
+		if(frm.tt.value == ""){
+			alert("제목을 입력하세요");
+		}
+		else if(frm.note.value == ""){
+			alert("내용을 입력하세요");
+		}
+		else if(frm.mname.value == ""){
+			alert("글쓴이를 입력하세요");
+		}
+		else if(frm.mpass.value == ""){
+			alert("비밀번호를 입력하세요");
+		}		
+		else {
+			frm.submit();
+		}
+	}	
+</script>
+</html>

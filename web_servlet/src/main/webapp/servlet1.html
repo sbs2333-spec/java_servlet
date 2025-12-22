@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>사용자가 입력한 데이터를 백엔드로 전달하기</title>
+</head>
+<body>
+
+<form id="frm" method="post" action="./servlet1.do">	
+검색할 사용자 이름을 입력하세요 : <input type="text" name="usernm"><br>
+<input type="button" value="전송" onclick="gopage()">
+</form>
+
+</body>
+<script>
+	function gopage(){
+		if(frm.usernm.value==""){
+			alert("검색할 이름을 입력해야 합니다.")
+		}
+		else {
+			frm.submit();
+		}
+	}
+	
+</script>
+</html>

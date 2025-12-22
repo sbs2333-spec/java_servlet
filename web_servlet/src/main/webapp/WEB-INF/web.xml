@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>web_servlet</display-name>
+  
+  <!--  servlet 태그는 class => web에서 실행시킬 수 있도록 만들어주는 태그 -->
+  <servlet>
+  	<servlet-name>search_name</servlet-name>	<!--  별명명칭 -->
+  	<servlet-class>web_servlet.servlet1</servlet-class>	<!--  java class 명 및 위치한 패키지명 -->
+  </servlet>
+  
+  <!--  java 파일을 가상의 웹페이지 주소로 변환 -->
+  <servlet-mapping>
+  	<servlet-name>search_name</servlet-name>  <!--  servlet 태그에서 생성된 별명명칭을 가져옴 -->
+  	<url-pattern>/servlet1.do</url-pattern>   <!--  가상의 웹주소 -->
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>member</servlet-name>
+  	<servlet-class>web_servlet.servlet2</servlet-class>  	
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>member</servlet-name>  
+  	<url-pattern>/servlet2.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>sbs</servlet-name>
+  	<servlet-class>web_servlet.slex1</servlet-class>  	
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>sbs</servlet-name>  
+  	<url-pattern>/slex1.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+</web-app>
