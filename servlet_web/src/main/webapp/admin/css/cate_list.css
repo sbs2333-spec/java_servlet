@@ -1,0 +1,328 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    min-height: calc(100vh - 120px);
+    padding: 2rem 0;
+}
+
+/* Header override for admin */
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+}
+
+header h1 {
+    color: white;
+    font-size: 1.8rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 2rem;
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #667eea;
+}
+
+/* Submenu styles */
+.menu-item {
+    position: relative;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    flex-direction: column;
+    list-style: none;
+    padding: 0.5rem 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 150px;
+    z-index: 1000;
+}
+
+.menu-item:hover .submenu {
+    display: flex;
+}
+
+.submenu li {
+    margin: 0;
+    padding: 0;
+}
+
+.submenu li a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.submenu li a:hover {
+    background-color: #555;
+    color: #667eea;
+}
+/* Category List Container */
+.cate-list-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.list-header {
+    margin-bottom: 2rem;
+}
+
+.list-header h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.list-header p {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* Action Bar */
+.action-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.btn-add {
+    background-color: #667eea;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.btn-add:hover {
+    background-color: #5568d3;
+}
+
+/* Table Wrapper */
+.table-wrapper {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+/* Table Styles */
+.cate-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cate-table thead {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.cate-table thead th {
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+    color: #333;
+}
+
+.cate-table tbody tr {
+    border-bottom: 1px solid #e9ecef;
+    transition: background-color 0.2s;
+}
+
+.cate-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.cate-table tbody td {
+    padding: 1rem;
+    text-align: center;
+    color: #555;
+}
+
+/* Column widths */
+.col-number {
+    width: 10%;
+}
+
+.col-code {
+    width: 15%;
+}
+
+.col-name {
+    width: 35%;
+    text-align: left;
+}
+
+.col-use {
+    width: 20%;
+}
+
+.col-manage {
+    width: 20%;
+}
+/* Action Buttons */
+.btn-edit,
+.btn-delete {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+}
+
+.btn-edit {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #218838;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.page-link {
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ddd;
+    background-color: white;
+    color: #667eea;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s;
+    min-width: 40px;
+    text-align: center;
+}
+
+.page-link:hover {
+    background-color: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.page-link.active {
+    background-color: #667eea;
+    color: white;
+    border-color: #667eea;
+    font-weight: 600;
+}
+
+.page-link.prev,
+.page-link.next {
+    min-width: auto;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cate-list-container {
+        padding: 0 1rem;
+    }
+
+    .list-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .cate-table {
+        font-size: 0.9rem;
+    }
+
+    .cate-table thead th,
+    .cate-table tbody td {
+        padding: 0.75rem 0.5rem;
+    }
+
+    .btn-edit,
+    .btn-delete {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+        margin: 0.2rem;
+    }
+
+    nav ul li {
+        margin-left: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    .cate-table {
+        min-width: 400px;
+    }
+
+    .pagination {
+        flex-wrap: wrap;
+    }
+}

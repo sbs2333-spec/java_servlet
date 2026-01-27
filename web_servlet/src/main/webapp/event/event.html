@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영화 이벤트 페이지 (배경, 동영상 웹사이트)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@200..900&family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./event.css">
+    <script src="./event.js"></script>
+</head>
+<body>
+    <header class="top">
+        <nav class="menus">
+            <ul>
+                <li>새소식</li>
+                <li>영화예매</li>
+                <li>이벤트</li>
+                <li>매점</li>
+                <li>고객센터</li>
+            </ul>
+        </nav>
+    </header> <!--  상단 -->
+    <main>
+        <section class="mv_page">
+            <!-- CGV 로고 및 사용자 정보 입력 페이지 -->
+             <div class="cgv">
+                <img src="./cgv_logo.webp">
+             </div>
+             /* 사용자 정보*/
+             <form id="frm" method="post" action="./event_ok.do">
+             <div class="userinfo">
+                <!-- 주제 또는 타이틀관련 정보를 출력하는 태그-->
+                <p class="title">귀멸의 칼날 오픈기념 이벤트</p>
+                <span class="info">
+                    <input type="text" class="user" name="nm" id = "cnm" placeholder="고객명을 입력하세요">
+                </span>
+                <span class="info">
+                    <input type="text" class="user" name="tel" id = "ctel" placeholder="연락처를 입력하세요">
+                </span>
+                <span class="info">
+                    <input type="text" class="user" name="email" id = "cemail" placeholder="이메일을 입력하세요">
+                </span>
+                <span class="info">
+                    <input type="password" class="user" name="pw" id = "cpw" placeholder="패스워드를 입력하세요">
+                </span>
+                <span class="info">
+                    <input type="text" class="user" name="favor" id = "caw" placeholder="귀멸의 칼날 중 좋아하는 캐릭터명">
+                </span>
+                <span class="info">
+                    <input type="button" value="이벤트 참여하기" class="btn" onclick="eventinfo()">
+                </span>
+                <!-- 개인정보정책 동의사항 -->
+                <fieldset>
+                    <legend class="agree_title">개인정보 수집동의</legend>
+                    <em style="font-style: normal;">
+                        <!-- label 태그는 input과 결합시 글자를 클릭하였을 경우 반응하여 적용됨 -->
+                        <label><input type="checkbox" name="p_info" id="agree0" value="Y">개인정보 수신동의</label><br>
+                        <label><input type="checkbox" name="third_info" id="agree1" value="Y">제3자의 정보공개 동의</label><br>
+                        <label><input type="checkbox" name="m_info" id="agree2" value="Y">마케팅 수시동의</label><br>
+                    </em>
+                </fieldset>
+
+             </div>
+             </form>
+
+             <!-- 영상을 가져오는 태그이며, 해당 태그와 css 결합하면 다른 응용페이지 생성할 수 있다. -->        
+            <video class="mp" autoplay loop> <!-- 영상을 가져오는 태그이며, 해당 태그와 css가 결합하면 다른 응용페이지를 생성할 수 있다 -->
+                <source src="./mv/movie.mp4" type="video/mp4" class="sc">
+            </video>
+        </section>
+
+    </main> <!-- 영상배경 -->
+    <footer class="copy">
+		Copyright © 2026 Webpublisher By Mercury All Rights Reserved
+	</footer> <!-- 하단 -->
+</body>
+</html>

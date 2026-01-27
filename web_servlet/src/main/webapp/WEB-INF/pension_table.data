@@ -1,0 +1,16 @@
+create table notice(
+nidx int unsigned not null auto_increment comment '자동증가값',
+nsubject varchar(100) not null default '' comment '제목',
+nwriter char(50) not null default '' comment '글쓴이',
+ntext text not null comment '내용',
+ndate timestamp not null default current_timestamp comment '등록일',
+primary key(nidx)
+);
+
+desc notice;
+
+select column_name, column_comment from information_schema.columns where table_schema='pension'and table_name='notice';
+select column_name, column_comment from information_schema.columns where table_name='notice';
+-- 위처럼 db명을 안 적어도 됨. 테이블명만 적어도 된다. 
+
+select * from notice;

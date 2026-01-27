@@ -1,0 +1,72 @@
+/* re6.css - 도로명 주소 입력 폼 스타일 */
+.address-form {
+  width: 400px;
+  margin: 40px auto;
+  padding: 24px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fafafa;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.address-form h2 {
+  margin-bottom: 18px;
+  font-size: 1.3em;
+  color: #333;
+}
+.address-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #222;
+}
+.address-form input[type="text"] {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 16px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+.address-form button {
+  width: 100px;
+  height: 36px;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.register-btn {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 24px;
+  font-size: 1.1em;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(25,118,210,0.12);
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 16px;
+  display: block;
+  width: 100%;
+}
+.register-btn:hover {
+  background: #1565c0;
+}
+
+.address-form button:hover {
+  background: #1565c0;
+}
+.address-form .result {
+  margin-top: 18px;
+  padding: 10px;
+  background: #e3f2fd;
+  border-radius: 4px;
+  color: #1976d2;
+  font-size: 1em;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax - 기초1</title>
+</head>
+<body>
+<!-- 
+	CRUD : Create(POST), Read(GET), Update(PUT/PATCH), DELETE(Delete)
+	Ajax : Javascript를 이용한 동기(sync), 비동기(async) 통신 → 서버와 통신 ☞ x는 xml, ja는 Javascript, a는 asynchronous(비동기)
+			동기 → 순차적 처리, 즉 서버에서 순서대로 처리 진행하는 통신 → ex. 은행시스템, ARS
+			비동기 → 무작위로 처리 진행하는 통신이다. ex. sms같은거, 키오스크
+	Ajax 의 일반적인 통신 방법 → POST, GET
+	Ajax → Restful-API, RestAPI, MSA ☞ 이것들을 모두 api 서버라고 함.		
+			통신 방식은 POST, GET, PUT, PATCH, DELETE가 있음. 즉, 3개가 더 추가됨. 즉, 5개의 통신 규격이 있음. 	
+			
+	200 → READ(POST → 문자읽는것, GET, PUT, PATCH)
+	201 → Create 성공 (POST) → 파일생성
+	204 → Delete 삭제 성공 (Delete)	
+	500 → 서버 에러
+	AJAX를 서로 통신하는 방법 : 문자, XML, JSON	
+-->
+<input type="button" value="클릭" onclick="ajax_load()">
+
+</body>
+<script>
+	var aj; //통신을 사용하는 변수
+	function ajax_load(){
+		function aaa(){
+			//XMLHttpRequest(XHR)	→ 서버와 클라이언트가 서로 상호작용을 할 수 있도록 하는 통신언어 → XHR을 쓰라고 하면 ajax를 쓰라는 말이다. 
+			if(window.XMLHttpRequest){
+				return new XMLHttpRequest();	//→ new가 있으면 신규생성 즉, xhr을 신규로 생성한다.
+			}
+			
+		}
+		function bbb(){
+			//readyState : 요청에 대한 현재 상태값을 나타냄 
+			if(aj.readyState == XMLHttpRequest.DONE && aj.status == 200){
+				var result = aj.responseText;	//responseText : 문자로만 핸들링 
+				//responseXML → 백엔드에서 XML 형태로 응답을 보내줄 경우
+				//this.response → 백엔드에서 JSON 형태로 응답할 경우
+				htmlcode(result);
+				//console.log(this.response); //서버에서 보내준 값을 출력함.
+			}
+			else if(aj.status==402 || aj.status==403 || aj.status==500){
+				alert("서버와 통신 오류 발생!");
+			}
+		}
+		aj = aaa(); //통신 함수를 생성
+		aj.onreadystatechange = bbb;  //()를 사용하면 에러남. 즉 함수를 사용하면 안됨. → onreadystatechange : 통신 결과에 대한 return 역할
+		//?data= 파라미터 값을 통신으로 GET 전송
+		aj.open("GET","../web_ajax/ajax1.do?data=hong1111", true);	//open("통신방법", "서버 경로", true는 동기, 비동기를 말함. true는 비동기, false는 동기)
+		// .. 로 해야 함. . 로 하면 에러남 25-12-29 10:17
+		aj.send();	//send : 최종 ajax 통신값을 실행
+	}
+	
+	function htmlcode(data){
+		console.log(data);
+	}
+	
+	
+</script>
+
+
+</html>

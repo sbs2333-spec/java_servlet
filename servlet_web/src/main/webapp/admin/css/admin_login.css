@@ -1,0 +1,213 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 120px);
+    padding: 2rem 0;
+}
+
+.admin-login-container {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 420px;
+}
+
+.admin-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.admin-header h1 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.admin-header p {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.admin-login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.85rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-family: Arial, sans-serif;
+    transition: border-color 0.3s;
+}
+
+.input-field:focus {
+    border-color: #667eea;
+    outline: none;
+    box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+}
+
+.login-btn {
+    background-color: #667eea;
+    color: white;
+    padding: 0.85rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+
+.login-btn:hover {
+    background-color: #5568d3;
+}
+
+.login-btn:active {
+    background-color: #4757be;
+}
+
+.admin-links {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.link {
+    color: #667eea;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.link:hover {
+    color: #5568d3;
+    text-decoration: underline;
+}
+
+.divider {
+    color: #ddd;
+    margin: 0 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .admin-login-container {
+        padding: 1.5rem;
+    }
+
+    .admin-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .input-field {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .login-btn {
+        padding: 0.75rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Header override for admin */
+header {
+    background-color: #333;
+}
+
+header h1 {
+    color: white;
+}
+
+nav ul li a {
+    color: white;
+}
+
+nav ul li a:hover {
+    color: #667eea;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: auto;
+}
+
+/* Submenu styles */
+.menu-item {
+    position: relative;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    flex-direction: column;
+    list-style: none;
+    padding: 0.5rem 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 150px;
+    z-index: 1000;
+}
+
+.menu-item:hover .submenu {
+    display: flex;
+}
+
+.submenu li {
+    margin: 0;
+    padding: 0;
+}
+
+.submenu li a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.submenu li a:hover {
+    background-color: #555;
+    color: #667eea;
+}

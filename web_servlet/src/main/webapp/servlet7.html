@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>더블 form 전송 방식</title>
+</head>
+<body>
+<form id="frm1" method="post" action="./idsearch.do">	
+<p>[아이디 찾기]</p>
+이름 : <input type="text" name="mname"><br>
+이메일 : <input type="text" name="memail"><br>
+<input type="button" value="검색" onclick="gopage1()">
+</form>
+
+<form id="frm2" method="post" action="./password.do">
+<p>[패스워드 찾기]</p>
+아이디 : <input type="text" name="mid"><br>
+이름 : <input type="text" name="username"><br>	<!-- name명이 같으면 안됨.-->
+<input type="button" value="검색" onclick="gopage2()">
+</form>
+<script>
+	function gopage1(){	//아이디 찾는 함수
+		if(frm1.mname.value==""){
+			alert("이름을 입력하세요");
+			frm1.mname.focus();
+		}
+		else if(frm1.memail.value==""){
+			alert("이메일을 입력하세요")
+			frm1.memail.focus();
+		}
+		frm1.submit();
+	}
+	
+	function gopage2(){	//패스워드 찾기 함수
+		frm2.submit();
+		
+	}
+	
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>질문과 답변</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/edu_qa.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>E-Learning</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="pg_elist.html">코스</a></li>
+                    <li><a href="edu_notice.html">공지사항</a></li>
+                    <li><a href="edu_qa.html">질문과 답변</a></li>
+                    <li><a href="member_login.html">로그인</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="qa-container">
+            <h1>질문과 답변</h1>
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="제목, 글쓴이로 검색하세요">
+                <button class="search-btn">검색</button>
+                <button class="search-reset">초기화</button>
+                <button class="btn-write">질문하기</button>
+            </div>
+            <table class="qa-table">
+                <thead>
+                    <tr>
+                        <th width="80">번호</th>
+                        <th width="150">분류</th>
+                        <th>질문</th>
+                        <th width="150">글쓴이</th>
+                        <th width="100">조회수</th>
+                        <th width="100">답변</th>
+                        <th width="130">작성일</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td colspan="7">등록된 게시물이 없습니다.</td></tr>
+                    <tr>
+                        <td>5</td>
+                        <td>수강신청</td>
+                        <td class="title-cell" style="text-align: left;"><a href="#">수강신청 기간은 언제까지인가요?</a></td>
+                        <td>학생A</td>
+                        <td>32</td>
+                        <td><span class="answer-status">완료</span></td>
+                        <td>2026-01-15</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>과제제출</td>
+                        <td class="title-cell" style="text-align: left;"><a href="#">과제 제출 형식이 정해져 있나요?</a></td>
+                        <td>학생B</td>
+                        <td>28</td>
+                        <td><span class="answer-status pending">대기</span></td>
+                        <td>2026-01-14</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>강의듣기</td>
+                        <td class="title-cell" style="text-align: left;"><a href="#">강의 영상이 재생되지 않습니다.</a></td>
+                        <td>학생C</td>
+                        <td>45</td>
+                        <td><span class="answer-status">완료</span></td>
+                        <td>2026-01-13</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>시험</td>
+                        <td class="title-cell" style="text-align: left;"><a href="#">시험 재응시는 가능한가요?</a></td>
+                        <td>학생D</td>
+                        <td>19</td>
+                        <td><span class="answer-status pending">대기</span></td>
+                        <td>2026-01-12</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>수료증</td>
+                        <td class="title-cell" style="text-align: left;"><a href="#">수료증 발급은 어떻게 신청하나요?</a></td>
+                        <td>학생E</td>
+                        <td>56</td>
+                        <td><span class="answer-status">완료</span></td>
+                        <td>2026-01-10</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination">
+                <a href="#" class="page-link">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link">4</a>
+                <a href="#" class="page-link">5</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 E-Learning Platform. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

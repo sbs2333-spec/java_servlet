@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.reservation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    text-transform: none;
+}
+
+.form-input {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-input:hover {
+    border-color: #bbb;
+}
+
+.guest-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.guest-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.guest-label {
+    font-size: 13px;
+    color: #555;
+    font-weight: 500;
+    flex: 0 0 auto;
+    min-width: 35px;
+}
+
+.guest-input {
+    width: 50px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.guest-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+}
+
+.guest-unit {
+    font-size: 12px;
+    color: #888;
+    flex: 0 0 auto;
+}
+
+/* 결제금액 섹션 */
+.payment-amount {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    background: #f0f4ff;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #e0e8ff;
+}
+
+.amount-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #667eea;
+}
+
+.amount-unit {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.form-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: none;
+}
+
+.btn-cancel {
+    background: #e9ecef;
+    color: #495057;
+    border: 1px solid #dee2e6;
+}
+
+.btn-cancel:hover {
+    background: #dee2e6;
+    border-color: #adb5bd;
+}
+
+.btn-reserve {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-reserve:hover {
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-reserve:active {
+    transform: translateY(0);
+}
+
+
+@media (max-width: 480px) {
+    .container {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+
+    .reservation-form {
+        gap: 20px;
+    }
+
+    .guest-info {
+        grid-template-columns: 1fr;
+    }
+
+    .form-buttons {
+        grid-template-columns: 1fr;
+    }
+}

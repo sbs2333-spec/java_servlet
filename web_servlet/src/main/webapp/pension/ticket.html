@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>창덕궁 후원 특별 관람 예매</title>
+    <link rel="stylesheet" href="ticket.css">
+</head>
+<body>
+    <div class="container">
+        <h1>창덕궁 후원 특별 관람 예매</h1>
+        
+        <form id="frm" class="reservation-form">
+            
+            <div class="form-group">
+                <label class="form-label">관람일자</label>
+                <input name="visit_date" type="date" class="form-input" placeholder="관람일자 선택">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">관람시간</label>
+                <select name="visit_time" class="form-input">
+                    <option value="">관람시간을 선택하세요</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">관람인원</label>
+                <input name="headcount" type="number" class="form-input" min="1" max="100" placeholder="인원을 입력하세요">
+            </div>
+
+            <!-- 버튼 -->
+            <div class="form-buttons">
+                <button type="button" class="btn btn-reserve" onclick="gopage()">예매하기</button>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+	function gopage(){
+		if(frm.visit_date.value == ""){
+			alert("관람일자를 선택하세요");
+			frm.visit_date.focus();
+			
+		}else if(frm.visit_time.value == ""){
+			alert("관람시간을 선택하세요");
+			frm.visit_time.focus();
+			
+		}else if(frm.headcount.value == ""){
+			alert("인원수를 선택하세요");
+			frm.headcount.focus();
+			
+		}else{
+			frm.method = "post";
+			frm.action = "./api_ticket.do";
+			frm.submit();
+		}
+		
+		
+	}
+	
+	
+</script>
+
+
+
+</html>
+
+
+
+
+
+

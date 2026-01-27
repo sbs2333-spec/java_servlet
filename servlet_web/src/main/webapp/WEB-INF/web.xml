@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>servlet_web</display-name>
+ 
+    <servlet>
+  	<servlet-name>fileok</servlet-name>
+  	<servlet-class>cdn.fileok</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>fileok</servlet-name>
+  	<url-pattern>/cdn/fileok.do</url-pattern>
+  </servlet-mapping>
+ 
+    <servlet>
+  	<servlet-name>api_cdn</servlet-name>
+  	<servlet-class>cdn.api_cdn</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>api_cdn</servlet-name>
+  	<url-pattern>/cdn/api_cdn/*</url-pattern>
+  </servlet-mapping>
+ 
+    <servlet>
+  	<servlet-name>cate_modifyok</servlet-name>
+  	<servlet-class>admin.cate_modifyok</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>cate_modifyok</servlet-name>
+  	<url-pattern>/admin/cate_modifyok.do</url-pattern>
+  </servlet-mapping>
+ 
+    <servlet>
+  	<servlet-name>cate_modify</servlet-name>
+  	<servlet-class>admin.cate_modify</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>cate_modify</servlet-name>
+  	<url-pattern>/admin/cate_modify.do</url-pattern>
+  </servlet-mapping>
+ 
+   <servlet>
+  	<servlet-name>cate_api</servlet-name>
+  	<servlet-class>admin.cate_api</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>cate_api</servlet-name>
+  	<url-pattern>/admin/cate_api.do</url-pattern>
+  </servlet-mapping>
+
+   <servlet>
+  	<servlet-name>cate_list</servlet-name>
+  	<servlet-class>admin.cate_list</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>cate_list</servlet-name>
+  	<url-pattern>/admin/cate_list.do</url-pattern>
+  </servlet-mapping>
+
+   <servlet>
+  	<servlet-name>admin_logout</servlet-name>
+  	<servlet-class>admin.admin_logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>admin_logout</servlet-name>
+  	<url-pattern>/admin/admin_logout.do</url-pattern>
+  </servlet-mapping>
+
+   <servlet>
+  	<servlet-name>admin_main</servlet-name>
+  	<servlet-class>admin.admin_main</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>admin_main</servlet-name>
+  	<url-pattern>/admin/admin_main.do</url-pattern>
+  </servlet-mapping>
+
+    <servlet>
+  	<servlet-name>admin_loginok</servlet-name>
+  	<servlet-class>admin.admin_loginok</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>admin_loginok</servlet-name>
+  	<url-pattern>/admin/admin_loginok.do</url-pattern>
+  </servlet-mapping>
+
+
+    
+    <servlet>
+  	<servlet-name>index</servlet-name>
+  	<servlet-class>servlet_web.index</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>index</servlet-name>
+  	<url-pattern>/index.do</url-pattern>
+  	<url-pattern>/index.jsp</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>edu_classmk</servlet-name>
+  	<servlet-class>cms.edu_classmk</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>edu_classmk</servlet-name>
+  	<url-pattern>/cms/edu_classmk.do</url-pattern>
+  </servlet-mapping>
+    
+    
+    <servlet>
+  	<servlet-name>pg_elist</servlet-name>
+  	<servlet-class>cms.pg_elist</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>pg_elist</servlet-name>
+  	<url-pattern>/cms/pg_elist.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>pg_eclassok</servlet-name>
+  	<servlet-class>cms.pg_eclassok</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>pg_eclassok</servlet-name>
+  	<url-pattern>/cms/pg_eclassok.do</url-pattern>
+  </servlet-mapping>
+  
+  
+    <servlet>
+  	<servlet-name>logout</servlet-name>
+  	<servlet-class>cms.logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>logout</servlet-name>
+  	<url-pattern>/cms/logout.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>loginok</servlet-name>
+  	<servlet-class>cms.loginok</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>loginok</servlet-name>
+  	<url-pattern>/cms/loginok.do</url-pattern>
+  </servlet-mapping>
+</web-app>

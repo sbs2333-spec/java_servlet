@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사업자 회원가입</title>
+    <link rel="stylesheet" href="member.css?v=3">
+</head>
+<body>
+    <form id="frm" method="post" action="../web_ajax/memberok.do" onsubmit="return gopage()">
+        <div class="form-group">
+            <label>아이디:
+            <div class="input-group">
+                <input type="text" name="userid">
+                <button type="button" onclick="ajax_data()">중복체크</button>
+            </div>
+            </label>
+        </div>
+        <div class="form-group">
+            <label>비밀번호:
+            <input type="password" name="userpw">
+            </label>
+        </div>
+        <div class="form-group">
+            <label>회사명:</label>
+            <input type="text" name="companynm">
+        </div>
+        <div class="form-group">
+            <label>대표자명:</label>
+            <input type="text" name="ceonm">
+        </div>
+        <div class="form-group">
+            <label>사업자 등록번호:
+            <div class="input-group">
+                <input type="text" name="corpno">
+                <button type="button" onclick="">중복체크</button>
+            </div>
+            </label>
+        </div>
+        <button type="submit">회원가입</button>
+    </form>
+</body>
+<!--	비동기 통신 코드
+<script src="./member.js?v=3"></script>
+-->
+<!-- 동기 통신 코드-->
+<script src="./member2.js?v=3"></script>
+
+
+</html>

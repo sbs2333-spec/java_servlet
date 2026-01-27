@@ -1,0 +1,41 @@
+select * from event;
+
+insert into event values ('0', '홍길동', '010-5787-9768', 'sbs2333@naver.com', 
+'a123456', '탄지로', 'n', 'n', 'n', now());
+
+-- current_date : 연월일
+-- current_timestamp : 년월일 시분초
+-- current_date는 ( )를 필히 둘러싸야 한다.
+
+create table my_address(
+midx tinyint unsigned not null auto_increment,
+mpost char(5) not null default '00000',
+maddr1 varchar(150) not null,
+maddr2 varchar(100) null default '',
+mdate date not null default (current_date),
+primary key(midx)
+);
+
+select * from my_address;
+
+create table contact_us(
+  midx int unsigned not null auto_increment,
+  partner_type enum('광고','협찬','콘텐츠','디자인') not null,
+  com_name varchar(50) not null,
+  manager_name varchar(30) not null,
+  manager_email varchar(100) not null,
+  manager_tel varchar(20) not null,
+  contact_message text not null,
+  agree enum('y','n') not null default 'n',
+  created_at datetime not null default current_timestamp,
+  primary key (midx)
+);
+
+select * from contact_us;
+
+
+
+
+
+
+

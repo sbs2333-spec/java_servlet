@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>질문과 답변 상세 보기</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="css/admin_main.css">
+    <link rel="stylesheet" href="css/admin_qaview.css">
+</head>
+<body>
+<header>
+        <div class="container">
+            <h1>E-Learning</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">홈</a></li>
+                    <li class="menu-item">
+                        <a href="#">관리</a>
+                        <ul class="submenu">
+                            <li><a href="#">회원관리</a></li>
+                            <li><a href="#">공지사항 관리</a></li>
+                            <li><a href="#">Q&A관리</a></li>
+                            <li><a href="#">카테고리 관리</a></li>
+                            <li><a href="#">과목 관리</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">통계</a></li>
+                    <li><a href="#">님 환영합니다.</a></li>
+                    <li><a href="#">로그아웃</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="qaview-container">
+            <div class="back-button">
+                <a href="admin_qa.html">목록으로 돌아가기</a>
+            </div>
+            
+            <!-- 질문 내용 -->
+            <div class="question-section">
+                <h1>질문 상세 보기</h1>
+                <div class="question-header">
+                    <div class="question-info">
+                        <h2 class="question-title">수강신청 기간은 언제까지인가요?</h2>
+                        <div class="question-meta">
+                            <span class="meta-item">
+                                <strong>분류:</strong> 수강신청
+                            </span>
+                            <span class="meta-item">
+                                <strong>글쓴이:</strong> 학생A
+                            </span>
+                            <span class="meta-item">
+                                <strong>작성일:</strong> 2026-01-15 14:30
+                            </span>
+                            <span class="meta-item">
+                                <strong>조회수:</strong> 32
+                            </span>
+                        </div>
+                    </div>
+                    <div class="question-status">
+                        <span class="status-badge completed">답변완료</span>
+                    </div>
+                </div>
+                <div class="question-content">
+                    <p>2026학년도 1학기 수강신청이 언제부터 시작되며, 신청 마감일은 언제까지인가요? 수강신청을 할 때 주의할 사항이 있다면 알려주세요.</p>
+                </div>
+            </div>
+
+            <!-- 답변 내용 -->
+            <div class="answer-section">
+                <h2>등록된 답변</h2>
+                <div class="answer-box">
+                    <div class="answer-header">
+                        <strong class="answer-author">관리자</strong>
+                        <span class="answer-date">2026-01-15 15:45</span>
+                    </div>
+                    <div class="answer-content">
+                        <p>2026학년도 1학기 수강신청 기간은 다음과 같습니다:</p>
+                        <ul>
+                            <li>4학년: 2026년 1월 10일 (금) - 1월 12일 (일)</li>
+                            <li>3학년: 2026년 1월 13일 (월) - 1월 15일 (수)</li>
+                            <li>2학년: 2026년 1월 16일 (목) - 1월 18일 (토)</li>
+                            <li>1학년: 2026년 1월 19일 (일) - 1월 21일 (화)</li>
+                        </ul>
+                        <p><strong>수강신청 시 주의사항:</strong></p>
+                        <ul>
+                            <li>정해진 시간 외에는 수강신청이 불가능합니다.</li>
+                            <li>수강신청 후 반드시 확인을 클릭하여 신청을 완료해야 합니다.</li>
+                            <li>취소 및 변경은 마감시간 전까지 가능합니다.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 E-Learning Platform. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

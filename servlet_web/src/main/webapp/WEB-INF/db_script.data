@@ -1,0 +1,97 @@
+select * from member;
+
+select *,(select count(*) from edu where mid='rio0405') as ctn from 
+edu where mid='rio0405' order by eidx desc limit 0,3;
+
+select * from edu;
+
+/* 관리자 전용 테이블 */
+create table admin(
+aidx int unsigned not null auto_increment,
+admin_id varchar(20) not null,
+admin_nm varchar(30) not null default '관리자',
+admin_pw varchar(50) not null,
+primary key(aidx),
+unique aa(admin_id)
+);
+insert into admin values ('0','master','최고관리자','a123456');
+
+update admin set admin_pw='dc483e80a7a0bd9ef71d8cf973673924' where admin_id='master';
+
+select * from admin;
+
+select * from cate;
+
+select count(*) from cate as a join subject as b where a.cate_code=b.cate_code group by a.cate_code;
+
+
+select *,
+(select count(*) from subject as b where b.cate_code=a.cate_code) as subject_ea 
+from cate as a;
+
+select count(*) from subject as b join cate as a where b.cate_code=a.cate_code;
+
+delete from cate where cate_code='it_spring';
+
+/* 과목 카테고리 Table */
+create table cate(
+cate_code varchar(10) not null,
+cate_name varchar(50) not null,
+cate_use enum('Y','N') not null default 'Y',
+primary key(cate_code)
+);
+insert into cate values ('it_java','Java 기초과정','Y');
+insert into cate values ('it_spring','Spring 기초과정','Y');
+insert into cate values ('it_boot','Spring-Boot 실무과정','Y');
+insert into cate values ('it_server','클라우드 실무과정','N');
+insert into cate values ('it_data','데이터분석 과정','Y');
+insert into cate values ('design','웹디자인 과정','Y');
+
+/* 과목등록 테이블 */
+create table subject(
+	sidx smallint unsigned not null auto_increment,
+	cate_code varchar(10) not null,
+	subject_nm varchar(100) not null,
+	teacher_nm varchar(30) not null,
+	class_time smallint(4) not null default '0000',
+	class_level tinyint not null default '1',
+	class_text text null,
+	subject_text text null,
+	start_day date not null default (current_date),
+	end_day date not null default (current_date),
+	max_no smallint unsigned not null default '0',
+	class_use enum ('R','Y','N') not null default 'R',
+	indate datetime not null default current_timestamp,
+	primary key(sidx),
+	foreign key(cate_code) references cate(cate_code)
+)
+
+select * from subject;
+
+/* 
+   cascade: on delete => 해당 부모 테이블에 delete dml 언어가 작동 되었을 경우
+   자식 테이블에 데이터를 같이 삭제하는 쿼리문
+ */
+alter table subject add constraint fk_cate_code foreign key(cate_code) 
+references cate(cate_code) on delete cascade;
+
+alter table subject add constraint fk_cate_code foreign key(cate_code) 
+references cate(cate_code) on update cascade;
+
+
+desc subject;
+
+select * from subject;
+
+
+create table edu(
+eidx int unsigned not null auto_increment,
+mid char(20) not null,
+mname char(10) not null,
+subject varchar(100) not null,
+indate timestamp not null default current_timestamp,
+primary key(eidx),
+foreign key(mid) references member(mid)
+);
+
+select * from edu where mid='rio0405' order by eidx desc;

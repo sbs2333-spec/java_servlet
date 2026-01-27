@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>공지사항 작성</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;background:#f7f7f7;padding:24px}
+    .card{max-width:800px;margin:0 auto;background:#fff;padding:20px;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+    .field{display:flex;flex-direction:column;margin-bottom:12px}
+    label{font-weight:600;margin-bottom:6px}
+    input[type="text"], input[type="file"], textarea{padding:10px;border:1px solid #d1d5db;border-radius:4px;font-size:15px}
+    textarea{min-height:220px;resize:vertical}
+    .file-row{display:flex;align-items:center;gap:8px}
+    .file-row input[type="text"]{flex:1}
+    .btn{background:#0b79f7;color:#fff;border:none;padding:10px 14px;border-radius:4px;cursor:pointer;font-weight:600}
+    .btn.secondary{background:#6b7280}
+    .actions{margin-top:16px;text-align:right}
+    @media (max-width:520px){.card{padding:14px}.file-row{flex-direction:column;align-items:stretch}}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <form id="noticeForm" method="post" enctype="multipart/form-data">
+      <div class="field">
+        <label for="title">제목</label>
+        <input id="title" name="title" type="text" placeholder="제목을 입력하세요" required>
+      </div>
+
+      <div class="field">
+        <label for="author">글쓴이</label>
+        <input id="author" name="author" type="text" placeholder="작성자명을 입력하세요" required>
+      </div>
+
+      <div class="field">
+        <label for="content">내용</label>
+        <textarea id="content" name="content" placeholder="내용을 입력하세요"></textarea>
+      </div>
+
+      <div class="field">
+        <label>이미지 등록</label>
+        <div class="file-row">
+          <input type="text" id="imageName" placeholder="선택된 파일 없음" readonly>
+          <button type="button" id="attachBtn" class="btn secondary">파일첨부</button>
+          <input id="imageInput" name="image" type="file" accept="image/*" style="display:none">
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn">공지사항 등록</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const attachBtn = document.getElementById('attachBtn');
+    const imageInput = document.getElementById('imageInput');
+    const imageName = document.getElementById('imageName');
+
+    attachBtn.addEventListener('click', () => imageInput.click());
+
+    imageInput.addEventListener('change', () => {
+      const file = imageInput.files[0];
+      imageName.value = file ? file.name : '선택된 파일 없음';
+    });
+
+    // 간단한 클라이언트 유효성 검사(예시)
+    document.getElementById('noticeForm').addEventListener('submit', (e) => {
+      const title = document.getElementById('title').value.trim();
+      const author = document.getElementById('author').value.trim();
+      if (!title || !author) {
+        e.preventDefault();
+        alert('제목과 글쓴이는 필수 항목입니다.');
+      }
+    });
+  </script>
+</body>
+</html>

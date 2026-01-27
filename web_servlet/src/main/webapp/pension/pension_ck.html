@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>펜션 예약 확인</title>
+    <link rel="stylesheet" href="pension_ck.css">
+</head>
+<body>
+    <div class="container">
+        <h1>펜션 예약 확인</h1>
+        
+        <form id="frm" class="reservation-form">
+            
+            <div class="form-group">
+                <label class="form-label">고객명</label>
+                <input type="text" name="person_nm" class="form-input" placeholder="고객명을 입력하세요">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">휴대폰 번호</label>
+                <input type="tel" name="person_hp" class="form-input" placeholder="-빼고 휴대폰 번호를 입력하세요" maxlength="11">
+            </div>
+
+			<div class="form-group" id="message">
+				결과가 나오는 공간
+			</div>
+
+            <!-- 버튼 -->
+            <div class="form-buttons">
+                <button type="button" class="btn btn-check" onclick="rsearch()">조회하기</button>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+	//api_search.do
+	function rsearch(){
+		if(frm.person_nm.value == ""){
+			alert("고객명을 입력해 주세요");
+		}
+		else if(frm.person_hp.value == ""){
+			alert("휴대폰 번호를 입력해 주세요");			
+		}
+		else {
+			ajax(frm.person_nm.value, frm.person_hp.value);
+		}
+	}	
+	
+	function ajax(nm, hp){
+		var html, result;
+		html = new XMLHttpRequest();
+		html.onreadystatechange = function(){
+			if(html.readyState == 4 && html.status == 200){
+				//return 결과값 중 error 또는 없을 경우 처리
+				if(this.response == "error" || this.response == ""){
+					document.getElementById("message").innerText = "예약 정보가 없습니다.";
+				} else {	//결과값이 있을 경우 배열 형태로 구현하여 출력
+					var res = this.response.split(",");
+					var text = "입실일자 : " + res[0];
+					text += " 퇴실일자 :" + res[1];
+					text += " 객실명 : " + res[2];
+					document.getElementById("message").innerText = text;
+				}
+			}
+		}
+		//아래 2줄은 순서가 중요함. 아래2번째줄이 위로 올라오면 오류남. 26-1-12 15:41
+		html.open("post", "./api_search.do", true);
+		//post로 ajax 전송시 setRequestHeader는 필수 조건으로 사용해야 한다. 
+		html.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+		//전송시 파라미터 형태의 구조
+		html.send("person_nm="+nm+"&person_hp="+hp);
+	}
+	
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+

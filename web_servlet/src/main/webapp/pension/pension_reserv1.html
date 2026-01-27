@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>펜션 예약 시스템</title>
+    <link rel="stylesheet" href="pension_reserv1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>펜션 예약</h1>
+        
+        <form id="frm" class="reservation-form">
+			<!-- 백엔드가 해당 room에 대한 결제금액을 받는 역할-->
+            <input type="hidden" name="person" value=""> <!-- 배열형태로 백엔드에게 전송(인원)-->
+            <input type="hidden" name="money" value="0"> <!-- 결제 금액-->
+            
+            <div class="form-group">
+                <label class="form-label">고객명</label>
+                <input type="text" name="person_nm" class="form-input" placeholder="예약자명을 입력하세요">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">휴대폰번호</label>
+                <input type="text" name="person_hp" class="form-input" placeholder="-빼고 숫자만 입력하세요" maxlength="11">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">입실일자</label>
+                <input type="date" name="check_in" class="form-input" placeholder="입실일자 선택" onchange="today_check(this.value)">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">퇴실일자</label>
+                <input type="date" name="check_out" class="form-input" placeholder="퇴실일자 선택" onchange="outday_check(this.value)">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">객실명 * 입실일자를 선택하셔야 객실을 선택하실 수 있습니다. </label>
+                <select class="form-input" name="room" class="room-select" id="room-select">
+                    <option value="">입실일자를 선택하셔야 합니다.</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">객실인원수</label>
+                
+                <div class="guest-info">
+                    <div class="guest-item">
+                        <label class="guest-label">성인</label>
+                        <input type="number" id="ad" class="guest-input" min="0" value="0">
+                        <span class="guest-unit">명</span>
+                    </div>
+                    
+                    <div class="guest-item">
+                        <label class="guest-label">아동</label>
+                        <input type="number" id="ch" class="guest-input" min="0" value="0">
+                        <span class="guest-unit">명</span>
+                    </div>
+                    
+                    <div class="guest-item">
+                        <label class="guest-label">유아</label>
+                        <input type="number" id="inf" class="guest-input" min="0" value="0">
+                        <span class="guest-unit">명</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 결제금액 -->
+            <div class="form-group">
+                <label class="form-label">결제금액</label>
+                <div class="payment-amount">
+                    <span class="amount-value" id="amount-value">0</span>
+                    <span class="amount-unit">원</span>
+                </div>
+            </div>
+
+            <!-- 버튼 -->
+            <div class="form-buttons">
+                <button type="reset" class="btn btn-cancel">초기화</button>
+                <button type="button" class="btn btn-reserve" onclick="gopage()">예약하기</button>
+            </div>
+        </form>
+    </div>
+
+	<script>
+	function gopage(){
+		if(frm.check_in.value == ""){
+			alert("입실일자를 선택하세요");
+		}
+		else if (frm.check_out.value==""){
+			alert("퇴실일자를 선택하세요");
+		}
+		else if (frm.room.value==""){
+			alert("객실을 선택하세요");			
+		}
+		else {
+			var ad = document.getElementById("ad").value;
+			var ch = document.getElementById("ch").value;
+			var inf = document.getElementById("inf").value;
+			if(ad > 0){
+				if(ch == "" || inf == ""){
+					document.getElementById("ch").value = 0;
+					document.getElementById("inf").value = 0;
+				}
+				else {
+					//Javascript 배열로 생성하여 백엔드에 전달
+					frm.person.value = [ad, ch, inf];
+					frm.method = "post";
+					frm.action = "./pensionok.do";
+					frm.submit();
+				}
+				
+			}
+			
+		}
+	}	
+		
+		
+		
+		//퇴실일자 함수
+		function outday_check(dateck){
+			var today = new Date();
+			var tos = today.toISOString().slice(0,10);
+			if(dateck <= tos){
+				alert("해당 퇴실 일자를 선택하실 수 없습니다.");
+				frm.check_out.value = "";
+			}
+			else {
+				frm.check_out.readonly = true;
+			}
+			
+		}
+			
+		
+		//입실일자 함수
+		function today_check(dateck){
+			var today = new Date();	//현재 적용날짜 및 시간
+			console.log(today.toISOString());
+//			var tos = today.toISOString().split('T')[0];
+			var tos = today.toISOString().slice(0,10);	//slice → substring		
+			if(dateck <= tos){
+				alert("해당 날짜는 선택하실 수 없습니다.");
+				frm.check_in.value = "";
+			}
+			else{
+				frm.check_in.readonly = true;
+				room_ajax(frm.check_in.value);
+			}
+		}
+		
+		//ajax post 통신 함수
+		function room_ajax(userday){
+			var http, result;	//http → api 통신변수, result → 결과값을 받는 변수
+			http = new XMLHttpRequest();
+			http.onreadystatechange = function(){ 
+				if(http.readyState == 4 && http.status == 200){
+					var select_room = this.response;
+					console.log(select_room);
+					var sp = select_room.split(",");
+					result = '<option value="">객실을 선택해주세요</option>';
+					var w = 0;
+					while(w < sp.length){
+						result += '<option value="'+sp[w]+'">'+sp[w]+'</option>';
+						w++;
+					}
+					frm.room.innerHTML = result;
+					console.log(result);
+				}
+			}
+		/*
+		ajax에서 post 통시니시 중요사항	
+		setRequestHeader 없이 백엔드로 post 통신시 정상적으로 데이터를 보낼 수 없음
+		urlencoded를 적용하지 않을 경우 → 백엔드에서는 null만 출력이 됨
+		send(파라미터명=데이터값&파라미터명=데이터값) 형태로 전송합니다.
+		*/
+		
+		http.open("post", "./api_pension.do", true);
+		http.setRequestHeader("content-type","application/x-www-form-urlencoded");
+		http.send("today="+userday+"&key=mapo");
+		
+	}		
+
+
+        const roomSelect = document.querySelector('#room-select');
+        const paymentAmount = document.querySelector('#amount-value');
+
+        const roomPrices = {
+            '디럭스': 150000,		//150,000처럼 넣으면 안됨 26-1-12 12:30
+            '스탠다드': 200000,
+            '패밀리': 350000,
+            '하우스': 428000
+        };
+
+        roomSelect.addEventListener('change', function() {
+            const selectedRoom = this.value;
+            if (roomPrices[selectedRoom]) {
+				frm.money.value = roomPrices[selectedRoom];
+                paymentAmount.textContent = roomPrices[selectedRoom].toLocaleString();
+            } else {
+                paymentAmount.textContent = '0';
+            }
+        });
+    </script>
+</body>
+</html>

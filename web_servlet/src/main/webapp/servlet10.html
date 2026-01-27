@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>더블 form 전송 방식(1개의 Controller)</title>
+</head>
+<body>
+<form id="frm1" method="post" action="./servlet10.do">	
+<input type="hidden" name="info" value="idsearch">	<!-- form이 따로 있으면 name값이 중복되어도 된다. hidden이기도 하지만..-->	
+<p>[아이디 찾기]</p>
+이름 : <input type="text" name="mname"><br>
+이메일 : <input type="text" name="memail"><br>
+<input type="button" value="검색" onclick="gopage1()">
+</form>
+
+<form id="frm2" method="post" action="./servlet10.do">
+<input type="hidden" name="info" value="pwdsearch">	
+<p>[패스워드 찾기]</p>
+아이디 : <input type="text" name="mid"><br>
+이름 : <input type="text" name="username"><br>	<!-- name명이 같으면 안됨.-->
+<input type="button" value="검색" onclick="gopage2()">
+</form>
+<script>
+	function gopage1(){	//아이디 찾는 함수
+		if(frm1.mname.value==""){
+			alert("이름을 입력하세요");
+			frm1.mname.focus();
+		}
+		else if(frm1.memail.value==""){
+			alert("이메일을 입력하세요")
+			frm1.memail.focus();
+		}
+		frm1.submit();
+	}
+	
+	function gopage2(){	//패스워드 찾기 함수
+		if(frm2.mid.value==""){
+			alert("아이디를 입력하세요");
+			frm2.mid.focus();
+		}
+		else {
+		frm2.submit();
+			
+		}
+		
+	}
+	
+</script>
+
+
+</body>
+</html>

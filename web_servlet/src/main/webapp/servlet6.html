@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>GET 통신으로 백엔드 처리</title>
+</head>
+<body>
+<!-- base64 암호화 전송-->	
+<form id="frm" method="get" action="./servlet6.do" onsubmit="return gopage()">	
+<input type="hidden" name="search">
+상품명 검색 : <input type="text" id="snm">	
+<input type="submit" value="검색">
+
+</form>
+</body>
+<script>
+	function gopage(){
+		var snm = document.getElementById("snm");
+		if(snm.value==""){
+			alert("상품명을 입력하세요");
+			return false;
+		}
+		else{
+			//UTF-8 = btoa : base64 인코딩, atob : base64 디코딩			
+			var word = encodeURIComponent(snm.value);	//encodeURIComponent를 넣어줘야 띄워쓰기가 됨.
+//			frm.search.value = btoa("aaaaaaaa");
+			frm.search.value = btoa(word);
+			
+			//atob : base64 디코딩
+			var word2 = atob(frm.search.value);
+			var word3 = decodeURIComponent(word2);
+			console.log(word3);
+			//return false;	//false는 안 날라가는 것
+			return true;
+		}
+	}
+	
+</script>
+</html>

@@ -1,0 +1,29 @@
+/* ajax5.css - styles for 사업자 회원 가입 */
+:root{
+  --bg:#f4f7fb;
+  --card:#ffffff;
+  --accent:#2b6cb0;
+  --muted:#6b7280;
+}
+*{box-sizing:border-box}
+body{font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; background:var(--bg); margin:0; color:#111}
+.signup-container{max-width:520px;margin:48px auto;padding:28px;background:var(--card);border-radius:10px;box-shadow:0 6px 18px rgba(22,28,37,0.08)}
+.title{margin:0 0 18px;font-size:1.4rem;color:var(--accent);text-align:center}
+.signup-form{display:flex;flex-direction:column;gap:12px}
+.form-row{display:flex;flex-direction:column}
+.form-row label{font-size:0.9rem;margin-bottom:6px;color:var(--muted)}
+.input-row{display:flex;gap:8px}
+input[type="text"], input[type="password"]{flex:1;padding:10px 12px;border:1px solid #d6d9df;border-radius:6px;font-size:0.96rem}
+.check-btn{background:#eef6ff;border:1px solid #cfe3ff;color:var(--accent);padding:8px 12px;border-radius:6px;cursor:default}
+.check-btn:hover{opacity:0.95}
+.actions{display:flex;gap:10px;justify-content:flex-end;margin-top:6px}
+.submit-btn{background:var(--accent);color:#fff;padding:10px 16px;border-radius:6px;border:none;cursor:pointer}
+.submit-btn:hover{opacity:0.95}
+.reset-btn{background:#fff;border:1px solid #e6e6e6;padding:10px 14px;border-radius:6px;cursor:pointer}
+.note{margin-top:14px;font-size:0.85rem;color:var(--muted);text-align:center}
+
+@media (max-width:520px){
+  .signup-container{margin:20px;padding:18px}
+  .input-row{flex-direction:column}
+  .actions{justify-content:stretch}
+}

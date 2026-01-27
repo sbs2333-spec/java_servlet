@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항 관리</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="css/admin_main.css">
+    <link rel="stylesheet" href="css/admin_notice.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>E-Learning 관리자</h1>
+            <nav>
+                <ul>
+                    <li><a href="admin_main.html">대시보드</a></li>
+                    <li><a href="admin_notice.html">공지사항</a></li>
+                    <li><a href="cate_list.html">카테고리</a></li>
+                    <li><a href="admin_login.html">로그아웃</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="notice-container">
+            <h1>공지사항 관리</h1>
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="제목, 글쓴이로 검색하세요">
+                <button class="search-btn">검색</button>
+                <button class="search-reset">초기화</button>
+                <button class="btn-write">글쓰기</button>
+            </div>
+            <table class="notice-table">
+                <thead>
+                    <tr>
+                        <th width="80">번호</th>
+                        <th width="150">분류</th>
+                        <th>제목</th>
+                        <th width="150">글쓴이</th>
+                        <th width="100">조회수</th>
+                        <th width="130">작성일</th>
+                        <th width="100">관리</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td colspan="7">등록된 게시물이 없습니다.</td></tr>
+                    <tr>
+                        <td>1</td>
+                        <td>일반공지</td>
+                        <td class="title-cell" style="text-align: left;"><a href="#">2026년 1월 강의 시작 안내</a></td>
+                        <td>관리자</td>
+                        <td>245</td>
+                        <td>2026-01-15</td>
+                        <td class="action-cell">
+                            <button class="btn-edit">수정</button>
+                            <button class="btn-delete">삭제</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination">
+                <a href="#" class="page-link">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link">4</a>
+                <a href="#" class="page-link">5</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 E-Learning Platform. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

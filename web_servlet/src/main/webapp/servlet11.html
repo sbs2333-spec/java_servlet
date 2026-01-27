@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>프런트 - 배열값을 이용한 checkbox 전송 방식</title>
+</head>
+<body>
+<form id="frm" method="get" action="./servlet11.do">	
+<p>같은 프로젝트를 하고 싶은 이용자를 선택하세요</p>
+<div id="list">
+	
+</div>
+<input type="button" value="선택완료" onclick="gopage()">
+</form>
+</body>
+<script>
+	var userlist = ["권하민","김고운","김동완","김예빈","박순수","신범석","허대회"];
+
+	function gopage(){	//2명 이상 선택이 되어야만 form 전송을 할 수 있도록 적용한다.
+		var count = 0;
+		var f;
+		for(f=0; f<userlist.length; f++){	//배열의 갯수만큼 반복시켜서 체크 확인
+			if(frm.user[f].checked == true){	//체크된 사항 조건일 경우 카운팅 +1씩 증가
+				//console.log(frm.user[f].value);
+				count++;
+			}
+		}
+		//체크된 사항이 2개 미만일 경우 해당 조건 내용 출력
+		if(count < 2){
+			alert("최소 2명 이상 선택하셔야 합니다.")
+		}
+		else{	//2개 이상일 경우 백엔드로 전달 (get 통신)
+			frm.submit();
+		}
+	}
+	
+	var w = 0;
+	var html = "";	//html 코드를 누적시키는 변수
+	while(w < userlist.length) {
+		html += "<span><input type='checkbox' name='user' value='"+userlist[w]+"'>" + userlist[w] + "</span><br>";
+		w++;
+	}
+	document.getElementById("list").innerHTML = html;	
+	
+</script>
+
+</html>

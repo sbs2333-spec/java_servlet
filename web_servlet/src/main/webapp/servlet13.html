@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>간편회원가입 step2 → servlet13.do</title>
+</head>
+<body>
+<form id="frm" method="post" action="./servlet13.do">	
+
+<input type="hidden" name="agree1">	
+<input type="hidden" name="agree2">	
+<input type="hidden" name="agree3">	
+	
+<p>간편회원가입</p>	
+* 아이디 : <input type="text" name="mid"><br>
+* 패스워드 : <input type="password" name="mpw"><br>
+* 이메일 : <input type="text" name="memail"><br>
+추천인 : <input type="text" name="person"><br>
+<input type="button" value="간편회원가입" onclick="gopage()">
+</form>
+</body>
+<script>
+	//servlet12.html에서 get으로 넘어온 파라미터값을 가져오는 방식
+	var data = window.location.search;
+	var sp = data.split("&agree3=");
+	console.log(sp);	//split으로 배열화 구분
+	frm.agree3.value = sp[1];
+	var sp2 = sp[0].split("&agree2=");
+	frm.agree2.value = sp2[1];
+	console.log(sp2[1]); 	//이메일 정책
+	var sp3 = sp[0].split("?agree1=");
+	frm.agree1.value = sp3[1];
+	console.log(sp3[1]); 	//이메일 정책
+	
+	//해당 내용을 확인 후 최종 백엔드에게 전달
+	function gopage(){
+		if(frm.mid.value == ""){
+			alert("아이디를 입력하세요");
+		}
+		else if(frm.mpw.value == ""){
+			alert("패스워드를 입력하세요")
+		}
+		else if(frm.memail.value == ""){
+			alert("이메일을 입력하세요")
+		}
+		else {
+			var mailck = /@[a-z0-9가-힣]+\./ig;
+			var ck = frm.memail.value.match(mailck);
+			if(ck == null){
+				alert("올바른 메일 주소를 입력하셔야 합니다.")
+			}
+			else {
+			frm.submit();
+				
+			}
+		}
+	}
+	
+	console.log(data);
+	
+</script>
+
+
+</html>

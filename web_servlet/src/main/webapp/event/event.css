@@ -1,0 +1,139 @@
+@charset "UTF-8" ;
+:root { /* :root ☞  css에 변수로 사용할 수 있는 공간 */
+    --wsize : 500px; /* --wsize는 변수명이며 --를 이용하여 새로운 변수명을 생성할 수 있음 */
+    --color1 : white;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Chiron GoRound TC", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400; /* 3~9 */
+    font-style: normal;
+}
+/* 상단메뉴*/
+.top {
+    position: absolute;
+    width: 100%;
+    height: 110px;
+    background-color: darkslategray;
+    z-index: 1; /* 해당 오브젝트 순서를 조절할 수 있는 속성값이다. 숫자가 높을수록 상위로 적용됨 */
+}
+.top > .menus {
+    height: inherit;
+}
+.top > .menus > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: inherit;
+}
+
+.top > .menus > ul > li {
+    width: 150px;
+    height: inherit;
+    line-height: 90px;
+    text-align: center;
+    float: left;
+    color: white;
+    font-size: 16px;
+}
+/* 대메뉴 끝 */
+
+/* 로고 출력 및 사용자 정보*/
+.cgv {
+    position: absolute; /* absolute는 margin 0 auto가 안 먹는다 절대로*/
+    left: 50%;
+    /* 
+    화면 정중앙에 위치 시키고 싶을 경우, left 무조건 50% 적용후
+    이미지 가로 사이즈의 반수치만 값을 적용한다 
+    */
+    margin-left: -90px; /* cgv 로고의 가로 크기가 180px 임.. 이것의 반이 90이고 이것을 왼쪽으로 땡긴다) */ 
+    top: 150px;
+    z-index: 2;
+}
+
+.userinfo {
+    position: absolute;
+    z-index: 3;
+    width: var(--wsize); /* var : 상위 :root에서 선언한 변수명을 가져오는 속성 */
+    height: 550px;
+    top: 280px;
+    left: 50%;
+    margin-left: calc(var(--wsize) / -2); /* calc (사칙연산하여 적용하는 속성)*/
+    border-radius: 5px;
+    border: 5px solid cadetblue ;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-sizing: border-box; /* 바로 위에 border 넣었으면 이 줄은 무조건 넣어야 한다. */
+}
+/* css에 변수 사용가능. 사칙연산도 가능하다 → 안된다는 사람들이 많음. 그 사람들은 사용을 안해본 것이다.*/
+
+.userinfo > .title {
+    font-size: 28px;
+    font-weight: 700;
+    color: purple;
+    text-align: center;
+}
+.info {
+    display: block;
+    width: 100%;
+    height: 40px;
+    /* background-color: yellow; */
+    padding: 0 10px 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+.info > .user {
+    width: 100%;
+    height: inherit;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 2px solid purple;
+    font-family: "Chiron GoRound TC", sans-serif;
+    font-size: 16px;
+    text-indent: 10px; /* 왼쪽 기준으로 사용자가 입력한 값을 들여쓰기 하는 속성*/
+}
+.info > .btn {
+    width: 100%;
+    height: inherit;
+    border: 0;
+    /* box-sizing: border-box; → 위처럼 border가 0이면 이 줄은 필요없음*/
+    border-radius: 10px;
+    background-color: purple;
+    color: white;
+    font-family: "Chiron GoRound TC", sans-serif;
+    font-size: 16px;
+}
+.agree_title {
+    text-align: center;
+}
+
+/* 영상배경 파트
+vw, vh : 접속한 디바이스의 가로, 세로 비율에 맞게 full 화면을 적용할 때 사용하는 수치 값*/
+.mv_page {
+    height: 100vh;
+    position: relative;
+    background-color: blue;
+}
+.mp {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    /* 아래 2줄 코드는 나중에 코드 관련 예시를 수업함 */
+    object-fit: cover;
+    overflow: hidden; /* 상하 스크롤 바 및 좌우 스크롤바가 생성됨. 단, video 태그 기준으로만 보이도록 설정*/
+}
+
+.copy{
+	width: 100%;
+	height: 60px;
+	background-color: black;
+	color: white;
+	text-align: center;
+	line-height: 60px;
+}
+
+
+
+
+

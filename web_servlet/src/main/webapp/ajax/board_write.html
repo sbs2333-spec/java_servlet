@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>게시글 작성</title>
+  <link rel="stylesheet" href="board_write.css">
+
+  <!-- CKEditor4 -->
+  <script src="./ckeditor/ckeditor.js?v=1"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      CKEDITOR.replace('editor');
+    });
+  </script>
+</head>
+
+<body>
+  <main class="container">
+    <h1>게시글 작성</h1>
+
+    <form id="frm" name="frm" action="../web_ajax/board_writeok.do" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label>제목</label>
+        <input type="text" id="title" name="title" maxlength="200" placeholder="제목을 입력하세요">
+      </div>
+
+      <div class="form-group">
+        <label>글쓴이</label>
+        <input type="text" id="author" name="author" maxlength="100" placeholder="작성자 이름">
+      </div>
+
+      <div class="form-group">
+        <label>내용</label>
+        <textarea id="editor" name="content" rows="10" placeholder="내용을 입력하세요"></textarea>
+      </div>
+
+	<!-- multiple을 사용하면 아래처럼 간단히 됨. 여러 파일을 선택 가능함. -->
+      <div class="form-group">
+        <label>파일첨부1
+        <input type="file" name="file" multiple>	
+		</label>  
+		<!--  
+        <label>파일첨부1</label>
+        <input type="file" id="file" name="file">
+        <label>파일첨부2</label>
+        <input type="file" id="file" name="file">
+        <label>파일첨부3</label>
+        <input type="file" id="file" name="file">
+        -->
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn-submit" onclick="gopage()">작성 완료</button>
+        <button type="button" class="btn-cancel" onclick="history.back()">취소</button>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    function gopage() {
+      // ✅ CKEditor4 인스턴스는 id("editor")로 접근
+      var txt = CKEDITOR.instances.editor.getData();
+
+      // ✅ form 객체 확실히 잡기
+      var frm = document.forms['frm'];
+
+      if (frm.title.value.trim() === "") {
+        alert("제목을 입력하세요");
+        frm.title.focus();
+        return;
+      } else if (frm.author.value.trim() === "") {
+        alert("글쓴이를 입력하세요");
+        frm.author.focus();
+        return;
+      } else if (txt.trim() === "") {
+        alert("내용을 입력하세요");
+        return;
+      } else {
+		  <!-- 해당 파일 첨부 갯수 파악-->
+		  if(frm.file.files.length > 3){
+			  alert("파일의 첨부파일 갯수는 최대 3개입니다.");
+			  frm.file.value = "";
+		  }
+		  else {
+			  frm.submit();
+		  }
+	  }
+    }
+  </script>
+</body>
+</html>

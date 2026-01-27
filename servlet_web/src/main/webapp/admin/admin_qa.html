@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>질문과 답변 관리</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="css/admin_main.css">
+    <link rel="stylesheet" href="css/admin_qa.css">
+</head>
+<body>
+<header>
+        <div class="container">
+            <h1>E-Learning</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">홈</a></li>
+                    <li class="menu-item">
+                        <a href="#">관리</a>
+                        <ul class="submenu">
+                            <li><a href="#">회원관리</a></li>
+                            <li><a href="#">공지사항 관리</a></li>
+                            <li><a href="#">Q&A관리</a></li>
+                            <li><a href="#">카테고리 관리</a></li>
+                            <li><a href="#">과목 관리</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">통계</a></li>
+                    <li><a href="#">님 환영합니다.</a></li>
+                    <li><a href="#">로그아웃</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="qa-container">
+            <h1>질문과 답변 관리</h1>
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="제목, 글쓴이로 검색하세요">
+                <button class="search-btn">검색</button>
+                <button class="search-reset">초기화</button>
+            </div>
+            <table class="qa-table">
+                <thead>
+                    <tr>
+                        <th width="80">번호</th>
+                        <th width="150">분류</th>
+                        <th>질문</th>
+                        <th width="150">글쓴이</th>
+                        <th width="100">조회수</th>
+                        <th width="100">답변</th>
+                        <th width="130">작성일</th>
+                        <th width="100">관리</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td colspan="8">등록된 게시물이 없습니다.</td></tr>
+                    <tr>
+                        <td>1</td>
+                        <td>수강신청</td>
+                        <td class="title-cell" style="text-align: left;"><a href="#">수강신청 기간은 언제까지인가요?</a></td>
+                        <td>학생A</td>
+                        <td>32</td>
+                        <td><span class="answer-status">완료</span></td>
+                        <td>2026-01-15</td>
+                        <td class="action-cell">
+                            <button class="btn-edit">답변</button>
+                            <button class="btn-delete">삭제</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>과제제출</td>
+                        <td class="title-cell" style="text-align: left;"><a href="#">과제 제출 형식이 정해져 있나요?</a></td>
+                        <td>학생B</td>
+                        <td>28</td>
+                        <td><span class="answer-status pending">대기</span></td>
+                        <td>2026-01-14</td>
+                        <td class="action-cell">
+                            <button class="btn-edit">답변</button>
+                            <button class="btn-delete">삭제</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination">
+                <a href="#" class="page-link">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link">4</a>
+                <a href="#" class="page-link">5</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 E-Learning Platform. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

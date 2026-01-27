@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML Checkbox, Radio, Select에 대한 데이터 전송</title>
+</head>
+<body>
+<form id="frm" method="post" action="./servlet4.do">
+통신사 : <select name="corp">
+	<option value="">통신사를 선택하세요</option>
+	<option value="SKT">SKT</option>
+	<option value="KT">KT</option>
+	<option value="LGT">LGT</option>
+	<option value="etc">알뜰폰</option>	<!-- 한글인 경우 etc로 보내주세요...라고 한다. 한글이 안 깨지려고-->
+</select>	
+	
+<!-- checkbox는 체크를 해야만 value의 값이 백엔드로 전송됨. 그 외에는 null이다.-->
+수량 : <input type="number" name="no" value="1"><br>
+자동 로그인 : <input type="checkbox" name="ck" value="Y"><br>
+약관 정책 : <input type="radio" name="ag" value="Y">동의함
+<input type="radio" name="ag" value="N" checked>동의안함<br>
+<input type="button" value="전송" onclick="gopage()">
+</form>
+</body>
+<script>
+	function gopage(){
+		//frm.submit();
+		
+		if(frm.ag[0].checked == false){
+			alert("동의함에 체크하셔야만 진행됩니다.");
+		}
+		else{
+			frm.submit();
+		}
+		
+	}	
+</script>
+</html>

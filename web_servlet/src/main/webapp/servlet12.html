@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이용약관 step1 → servlet13.html</title>
+</head>
+<body>
+<form id="frm" method="get" action="./servlet13.html">
+<p>이용약관 동의서</p>
+<input type="radio" name="agree1" value="Y">동의함
+<input type="radio" name="agree1" value="N" checked>동의안함
+<p>이메일 약관 동의서</p>
+<input type="radio" name="agree2" value="Y">동의함
+<input type="radio" name="agree2" value="N" checked>동의안함
+<p>이메일 수집 및 제 3자의 정보동의</p>
+<input type="checkbox" name="agree3">수신동의
+<br><br>
+<input type="button" value="회원동의 확인" onclick="gopage()">
+</form>
+
+</body>
+<script>
+	function gopage(){
+		if(frm.agree1[0].checked == false){
+			alert("이용약관에 동의하셔야 합니다.");
+		}
+		else if(frm.agree2[0].checked == false) {
+			alert("이메일 약관에 동의하셔야 합니다.");
+		}			
+		else if(frm.agree3.checked == false) {
+			alert("제3자의 수신 동의를 하셔야 합니다.");
+		}
+		else {
+			frm.submit();
+		}	
+	}	
+	
+</script>
+
+
+</html>

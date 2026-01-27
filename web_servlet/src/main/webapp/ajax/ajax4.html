@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ajax - 데이터 입력에 따른 결과를 jsp에서 가져올 경우</title>
+</head>
+<body>
+<input type="text" id="hp">
+<input type="button" value="인증번호받기" onclick="security()"><br>
+</body>
+
+<script>
+	function security(){
+		var hp = document.getElementById("hp");
+		var ajax = new XMLHttpRequest();
+		ajax.onreadystatechange = function(){
+			if(ajax.readyState == 4 && ajax.status == 200){
+				console.log(this.response);
+				if(this.response == "error"){
+					alert("올바른 접근이 아닙니다.");
+				}
+				else{
+					alert("인증번호가 발송되었습니다.");
+				}
+				//console.log(this.response);
+			}
+		}
+		ajax.open("get", "../web_ajax/ajax4.do?hp="+hp.value, true);
+		ajax.send();
+	}
+	
+</script>
+
+</html>

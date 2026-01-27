@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax - Jquery로 GET 통신</title>
+<script src="./jquery.js"></script>
+<script>
+	//$(document).ready(function(){})
+	//$(function(){
+	$(() => {	//화살표 함수
+	
+		$("#btn").click(function(){
+			var $mid = $("#mid").val();
+			if($mid==""){
+				alert("아이디를 입력하셔야만 중복 확인이 됩니다.")
+			}
+			else {
+			
+				let $data;		//백엔드에서 return 받은 값을 출력하는 변수
+				$.ajax({	//달라 . ajax로 시작하면 jquery를 사용하는 것이다.
+					url : "../web_ajax/ajax2.do?mid="+$mid, //백엔드 통신 경로를 의미함
+					cache : false, //브라우저의 캐시를 무시하고 항상 새로운 값을 가져오는 것이 false이다. → true면 고정값을 유지하는 경우가 생김.
+					//위는 캐쉬메모리 사용을 안한다는 것. 기본은 true이다. true면 버그가 발생할 수 있다.
+					type : "GET",  //소문자 get으로 써도 됨. 통신 방법
+					dataType : "TEXT", //전송방식, 역시 소문자로 text로 써도 됨. → 전송방식 및 응답 데이터 처리를 텍스트로 처리함
+					async : true, 	//디폴트값은 false임. 그래서 이줄을 안 쓰면 동기통신이 됨. 비동기를 사용하려면 이 줄을 필히 넣어야 한다.
+					// Jquery 2.x → 디폴트값이 true, 1.x는 디폴트값이 false이다. → 지금 사용하는 jquery는 3.x 라서 굳이 위 줄을 안 써도 된다고 함.
+					success : function($result){	//성공
+						$data = $result;
+						if($data == "ok"){
+							alert("해당 아이디는 사용 가능합니다.");
+						}
+						else if($data == "no"){
+							alert("이미 사용중인 아이디입니다.");
+						}
+					},
+					error: function(){	//오류
+						console.log("서버와 통신 오류 발생!!");
+					}
+				});
+			}	
+		});
+	});
+	//위처럼 해도 되고 아래처럼 해도 된다. 
+	
+	
+	//$(document).ready(function(){
+	//	alert("test");
+	//}		
+	
+</script>
+
+</head>
+<body>
+아이디 : <input type="text" id="mid"><br><br>
+<input type="button" value="아이디 중복체크" id="btn">
+
+</body>
+</html>
+
+
+
+
+
+

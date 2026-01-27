@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML 이메일 선택에 따른 결과를 받는 코드</title>
+</head>
+<body>
+<form id="frm" method="post" action="./servlet5.do">
+<!-- 개발자가 서로 소통하기 위한 데이터 전송 속성값 → hidden -->
+<input type="hidden" name="email">	<!-- hidden 을 이용해서 전화 번호등과 같은 정보를 2,3개 전송할 거를 한번에 전송한다. 실무팁이다. -->
+이메일 : <input type="text" name="email1"> @ <input type="text" name="email2" >
+<select id="usermail" onchange="em(this.value)">
+	<option value="">직접입력</option>
+	<option value="naver.com">네이버</option>
+	<option value="nate.com">네이트</option>
+	<option value="gmail.com">구글</option>
+	<option value="hanmail.net">한메일</option>
+</select>
+<input type="button" value="이메일 체크" onclick="gopage()">
+</form>
+</body>
+<script>
+	function em(data){
+		if(data != ""){
+			frm.email2.value = data;
+			frm.email2.readonly = true;
+		}
+		else{
+			frm.email2.value = "";
+			frm.email2.readonly = false;
+		}
+		//console.log(data);
+	}
+	
+	function gopage(){
+		if(frm.email1.value=="" || frm.email2.value==""){
+			alert("이메일을 모두 입력하셔야 합니다.")
+		}
+		else{
+			frm.email.value = frm.email1.value + "@" + frm.email2.value;
+			frm.submit();
+		}
+	}
+	
+</script>
+</html>

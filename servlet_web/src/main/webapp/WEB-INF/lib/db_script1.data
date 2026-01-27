@@ -1,0 +1,111 @@
+select * from member;
+
+select database();
+
+create table edu(
+	eidx int unsigned not null auto_increment,
+	mid char(20) not null,
+	mname char(10) not null,
+	subject varchar(100) not null,
+	indate timestamp not null default current_timestamp,
+	primary key (eidx),
+	foreign key(mid) references member(mid)
+);
+
+-- drop table new;
+create table new(
+	eidx int unsigned not null auto_increment,
+	title varchar(100) not null,
+	writer varchar(10) not null,
+	contents varchar(1000) not null,
+	cat enum('일반공지','긴급공지','강의공지','시스템공지') not null default '일반공지',
+	view_count int not null default 0,
+	write_date timestamp not null default current_timestamp,
+	primary key (eidx)
+);
+
+desc new;
+
+select * from edu;
+
+/*관리자 전용 테이블*/
+create table admin(
+	aidx int unsigned not null auto_increment,
+	admin_id varchar(20) not null,
+	admin_nm varchar(30) not null default '관리자',
+	admin_pw varchar(50) not null,
+	primary key(aidx),
+	unique aa(admin_id)
+);
+insert into admin values ('0', 'master', '최고관리자', 'a123456');
+
+DELETE FROM admin WHERE admin_id = 'master';
+INSERT INTO admin VALUES ('0', 'master', '최고관리자', 'a123456');
+
+select * from admin
+
+select * from admin where admin_id='master'
+
+select * from cate;
+
+select a.cate_code, count(*) from cate as a join subject as b where a.cate_code=b.cate_code group by b.cate_code;
+
+/* 과목 카테고리 테이블 */
+create table cate(
+	cate_code varchar(10) not null,
+	cate_name varchar(50) not null,
+	cate_use enum('Y', 'N') not null default 'Y',
+	primary key(cate_code)
+);
+
+insert into cate values ('it_java','Java 기초과정', 'Y');
+insert into cate values ('it_spring','Spring 기초과정', 'Y');
+insert into cate values ('it_boot','Spring-Boot 실무과정', 'Y');
+insert into cate values ('it_server','클라우드 실무과정', 'N');
+insert into cate values ('it_data','데이터분석 과정', 'N');
+insert into cate values ('design','웹디자인 과정', 'Y');
+
+
+/* 과목등록 테이블 */
+create table subject(
+	sidx smallint unsigned not null auto_increment,
+	cate_code varchar(10) not null,
+	subject_nm varchar(100) not null,
+	teacher_nm varchar(30) not null,
+	class_time smallint(4) not null default '0000',
+	class_level tinyint not null default '1',
+	class_text text not null,
+	subject_text text null,
+	start_day date not null default (current_date),
+	end_day date not null default (current_date),
+	max_no smallint unsigned not null default '0',
+	class_use enum('R', 'Y', 'N') not null default 'R',
+	indate datetime not null default current_timestamp,
+	primary key(sidx),
+	foreign key(cate_code) references cate(cate_code)
+);
+
+
+/*
+cascade : on delete → 해당 부모 테이블에 delete DML 언어가 작동되었을 경우 자식 테이블에 데이터를 같이 삭제하는 쿼리문
+*/
+ALTER TABLE subject add constraint fk_cate_code	foreign key(cate_code)
+references cate(cate_code) on delete cascade;
+
+ALTER TABLE subject MODIFY cate_code VARCHAR(100); 
+-- 기존 크기가 작다면 50이나 100 정도로 늘려주세요.
+
+select * from subject;
+
+select * from admin;
+
+update admin set admin_pw='dc483e80a7a0bd9ef71d8cf973673924' where admin_id='master';
+
+
+select * from edu where mid='rio0405' order by eidx desc;
+
+select *,(select count(*) from edu where mid='ara7615') as ctn from
+edu where mid='ara7615' order by eidx desc limit 0, 3;
+
+
+

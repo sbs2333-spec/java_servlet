@@ -1,6 +1,301 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
   <display-name>web_servlet</display-name>
+
+  <servlet>
+  	<servlet-name>api_ticket</servlet-name>
+  	<servlet-class>pension.api_ticket</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>api_ticket</servlet-name>
+  	<url-pattern>/pension/api_ticket.do</url-pattern>  	
+  </servlet-mapping> 
+      
+  <servlet>
+  	<servlet-name>api_search</servlet-name>
+  	<servlet-class>pension.api_search</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>api_search</servlet-name>
+  	<url-pattern>/pension/api_search.do</url-pattern>  	
+  </servlet-mapping> 
+      
+  <servlet>
+  	<servlet-name>api_pension</servlet-name>
+  	<servlet-class>pension.api_pension</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>api_pension</servlet-name>
+  	<url-pattern>/pension/api_pension.do</url-pattern>  	
+  </servlet-mapping> 
+      
+
+  <servlet>
+  	<servlet-name>pension_reserv_ok</servlet-name>
+  	<servlet-class>pension_reservation.pension_reserv_ok</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>pension_reserv_ok</servlet-name>
+  	<url-pattern>/pension_reservation/pension_reserv_ok.do</url-pattern>  	
+  </servlet-mapping> 
+
+  <servlet>
+  	<servlet-name>notice_list</servlet-name>
+  	<servlet-class>pension.notice_list</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>notice_list</servlet-name>
+  	<url-pattern>/pension/notice_list.do</url-pattern>  	
+  </servlet-mapping> 
+
+  <servlet>
+  	<servlet-name>pensionok</servlet-name>
+  	<servlet-class>pension.pensionok</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>pensionok</servlet-name>
+  	<url-pattern>/pension/pensionok.do</url-pattern>  	
+  </servlet-mapping> 
+
+  <servlet>
+  	<servlet-name>contact_us_list</servlet-name>
+  	<servlet-class>contact_us.contact_us_list</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>contact_us_list</servlet-name>
+  	<url-pattern>/contact_us/contact_us_list.do</url-pattern>  	
+  </servlet-mapping> 
+
+  <servlet>
+  	<servlet-name>contact_us_ok</servlet-name>
+  	<servlet-class>contact_us.contact_us_ok</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>contact_us_ok</servlet-name>
+  	<url-pattern>/contact_us/contact_us_ok.do</url-pattern>  	
+  </servlet-mapping> 
+
+  <servlet>
+  	<servlet-name>addr_list</servlet-name>
+  	<servlet-class>event.addr_list</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>addr_list</servlet-name>
+  	<url-pattern>/event/addr_list.do</url-pattern>  	
+  </servlet-mapping> 
+
+  <servlet>
+  	<servlet-name>addrok</servlet-name>
+  	<servlet-class>event.addrok</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>addrok</servlet-name>
+  	<url-pattern>/event/addrok.do</url-pattern>  	
+  </servlet-mapping> 
+
+  <servlet>
+  	<servlet-name>event_ok</servlet-name>
+  	<servlet-class>event.event_ok</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>event_ok</servlet-name>
+  	<url-pattern>/event/event_ok.do</url-pattern>  	
+  </servlet-mapping> 
+ 
+  <servlet>
+  	<servlet-name>board_writeok</servlet-name>
+  	<servlet-class>web_ajax.board_writeok</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>board_writeok</servlet-name>
+  	<url-pattern>/web_ajax/board_writeok.do</url-pattern>  	
+  </servlet-mapping> 
+ 
+ 
+  <servlet>
+  	<servlet-name>notice_write_from_soonsoo_brother</servlet-name>
+  	<servlet-class>web_ajax.notice_write_from_soonsoo_brother</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>notice_write_from_soonsoo_brother</servlet-name>
+  	<url-pattern>/web_ajax/notice_write_from_soonsoo_brother.do</url-pattern>  	
+  </servlet-mapping> 
+
+  <servlet>
+  	<servlet-name>notice_writeok</servlet-name>
+  	<servlet-class>web_ajax.notice_writeok</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>notice_writeok</servlet-name>
+  	<url-pattern>/web_ajax/notice_writeok.do</url-pattern>  	
+  </servlet-mapping> 
+
+  <servlet>
+  	<servlet-name>fileok</servlet-name>
+  	<servlet-class>web_ajax.fileok</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>fileok</servlet-name>
+  	<url-pattern>/web_ajax/fileok.do</url-pattern>  	
+  </servlet-mapping> 
+
+  <servlet>
+  	<servlet-name>memberok</servlet-name>
+  	<servlet-class>web_ajax.memberok</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>memberok</servlet-name>
+  	<url-pattern>/web_ajax/memberok.do</url-pattern>  	
+  </servlet-mapping> 
+
+  <servlet>
+  	<servlet-name>usercheck</servlet-name>
+  	<servlet-class>web_ajax.usercheck</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>usercheck</servlet-name>
+  	<url-pattern>/web_ajax/usercheck.jsp</url-pattern>  	
+  </servlet-mapping> 
+
+  <servlet>
+  	<servlet-name>ajax5</servlet-name>
+  	<servlet-class>web_ajax.ajax5</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ajax5</servlet-name>
+  	<url-pattern>/web_ajax/ajax5.do</url-pattern>  	
+  </servlet-mapping> 
+
+  <servlet>
+  	<servlet-name>ajax4</servlet-name>
+  	<servlet-class>web_ajax.ajax4</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ajax4</servlet-name>
+  	<url-pattern>/web_ajax/ajax4.do</url-pattern>  	
+  </servlet-mapping> 
+
+  <servlet>
+  	<servlet-name>ajax3</servlet-name>
+  	<servlet-class>web_ajax.ajax3</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ajax3</servlet-name>
+  	<url-pattern>/web_ajax/ajax3.do</url-pattern>  	
+  </servlet-mapping> 
+
+  <servlet>
+  	<servlet-name>ajax2</servlet-name>
+  	<servlet-class>web_ajax.ajax2</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ajax2</servlet-name>
+  	<url-pattern>/web_ajax/ajax2.do</url-pattern>  	
+  </servlet-mapping> 
+
+  <servlet>
+  	<servlet-name>ajax1</servlet-name>
+  	<servlet-class>web_ajax.ajax1</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ajax1</servlet-name>
+  	<url-pattern>/web_ajax/ajax1.do</url-pattern>  	
+  </servlet-mapping> 
+
+  <servlet>
+  	<servlet-name>servlet13</servlet-name>
+  	<servlet-class>web_servlet.servlet13</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>servlet13</servlet-name>
+  	<url-pattern>/servlet13.do</url-pattern>  	
+  </servlet-mapping> 
+
+  <servlet>
+  	<servlet-name>servlet11</servlet-name>
+  	<servlet-class>web_servlet.servlet11</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>servlet11</servlet-name>
+  	<url-pattern>/servlet11.do</url-pattern>  	
+  </servlet-mapping> 
+
+  <servlet>
+  	<servlet-name>userinfo</servlet-name>
+  	<servlet-class>web_servlet.servlet10</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>userinfo</servlet-name>
+  	<url-pattern>/servlet10.do</url-pattern>  	
+  </servlet-mapping> 
+  
+  <servlet>
+  	<servlet-name>books</servlet-name>
+  	<servlet-class>web_servlet.servlet9</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>books</servlet-name>
+  	<url-pattern>/servlet9.do</url-pattern>  	
+  </servlet-mapping> 
+  
+  
+  <servlet>
+  	<servlet-name>list</servlet-name>
+  	<servlet-class>web_servlet.servlet8</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>list</servlet-name>
+  	<url-pattern>/servlet8.do</url-pattern>  	
+  </servlet-mapping> 
+  
+  
+  <servlet>
+  	<servlet-name>idsearch</servlet-name>
+  	<servlet-class>web_servlet.idsearch</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>idsearch</servlet-name>
+  	<url-pattern>/idsearch.do</url-pattern>  	
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>password</servlet-name>
+  	<servlet-class>web_servlet.password</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>password</servlet-name>
+  	<url-pattern>/password.do</url-pattern>  	
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>servlet6</servlet-name>
+  	<servlet-class>web_servlet.servlet6</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>servlet6</servlet-name>
+  	<url-pattern>/servlet6.do</url-pattern>  	
+  </servlet-mapping>  
+  
+  <servlet>
+  	<servlet-name>emailcheck</servlet-name>
+  	<servlet-class>web_servlet.servlet5</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>emailcheck</servlet-name>
+  	<url-pattern>/servlet5.do</url-pattern>  	
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>agree</servlet-name>
+  	<servlet-class>web_servlet.servlet4</servlet-class>  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>agree</servlet-name>
+  	<url-pattern>/servlet4.do</url-pattern>  	
+  </servlet-mapping>
+  
   
   <!--  servlet 태그는 class => web에서 실행시킬 수 있도록 만들어주는 태그 -->
   <servlet>

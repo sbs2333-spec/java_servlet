@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제휴문의</title>
+    <link rel="stylesheet" href="contents_us.css">
+</head>
+<body>
+    <div class="container">
+		<form id="frm" method="post" action="./contact_us_ok.do">
+        <h1>제휴문의</h1>
+            <div class="form-group">
+                <label>* 제휴구분</label>
+                <select name="partner_type">
+                    <option value="">선택필수</option>
+                    <option value="광고">광고</option>
+                    <option value="협찬">협찬</option>
+                    <option value="콘텐츠">콘텐츠</option>
+                    <option value="디자인">디자인</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>* 회사명</label>
+                <input type="text" name="com_name">
+            </div>
+            <div class="form-group">
+                <label>* 담당자명</label>
+                <input type="text" name="manager_name">
+            </div>
+            <div class="form-group">
+                <label>* 담당자 이메일 주소</label>
+                <input type="email" name="manager_email">
+            </div>
+            <div class="form-group">
+                <label>* 담당자 휴대전화번호</label>
+                <input type="tel" name="manager_tel" maxlength="13">
+            </div>
+            <div class="form-group">
+                <label>* 제휴문의 내용</label>
+                <textarea name="contact_message" rows="5"></textarea>
+            </div>
+            <div class="form-group checkbox-group">
+                <label style="display: flex; flex-direction: row;">
+                <input type="checkbox" name="agree" value="Y" style="width: 20px;"> 개인정보 수집에 동의함</label>
+            </div>
+            <button type="button" onclick="new_addr();">제휴문의확인</button>
+       </form>
+    </div>
+</body>
+<script src="./contact_us.js?v=1"></script>
+</html>
