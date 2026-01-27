@@ -24,7 +24,7 @@
 %>
         <script>
             alert("질문이 등록되었습니다.");
-            location.href="list.jsp";
+            location.href="../list.jsp";
         </script>
 <%
     } else {

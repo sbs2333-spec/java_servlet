@@ -41,13 +41,16 @@ public class qna_query {
     }
 
     // 2. 질문 목록 가져오기 (선생님 가이드: 10개씩 출력용)
-    public ArrayList<qna_dto> select_all() {
+    
+ // 기존 select_all을 아래처럼 '시작번호'를 받도록 수정합니다.
+    public ArrayList<qna_dto> select_all(int start_no) {
         ArrayList<qna_dto> list = new ArrayList<>();
         db_connect();
-        // 최신글이 위로 오도록 정렬
-        String sql = "select * from qna_board order by q_id desc";
+        // 시작번호(start_no)부터 10개만 가져오라는 명령어입니다.
+        String sql = "select * from qna_board order by q_id desc limit ?, 10";
         try {
             pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, start_no); 
             rs = pstmt.executeQuery();
             while (rs.next()) {
                 qna_dto dto = new qna_dto();
@@ -60,13 +63,11 @@ public class qna_query {
                 dto.setStatus(rs.getInt("status"));
                 list.add(dto);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            db_close();
-        }
+        } catch (Exception e) { e.printStackTrace(); }
+        finally { db_close(); }
         return list;
     }
+    
 
     // 자원 해제 메서드
     public void db_close() {

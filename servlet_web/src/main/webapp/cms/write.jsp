@@ -7,7 +7,7 @@
 %>
         <script>
             alert("로그인 후 이용 가능합니다.");
-            location.href="login.jsp"; // 학원 프로젝트의 로그인 페이지 경로로 수정
+            location.href="../login.jsp"; // 학원 프로젝트의 로그인 페이지 경로로 수정
         </script>
 <%
         return;

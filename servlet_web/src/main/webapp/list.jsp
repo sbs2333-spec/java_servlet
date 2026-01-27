@@ -59,6 +59,6 @@
         </tbody>
     </table>
     <br>
-    <button onclick="location.href='write.jsp'">질문하기</button>
+    <button onclick="location.href='cms/write.jsp'">질문하기</button>
 </body>
 </html>
