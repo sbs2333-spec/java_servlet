@@ -13,7 +13,7 @@
                 <ul>
                     <li><a href="/index.do">홈</a></li>
                     <li><a href="#">공지사항</a></li>
-                    <li><a href="#">Q & A</a></li>
+                    <li><a href="./edu_qa.jsp">Q & A</a></li>
                     <li><a href="#">코스</a></li>
                     <li><a href="/cms/pg_elist.do">내 학습</a></li>
                     <% if(name == null) { %>

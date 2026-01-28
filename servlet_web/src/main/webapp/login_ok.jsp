@@ -17,16 +17,16 @@
 	ResultSet rs = pstmt.executeQuery();
 	
 	if(rs.next()) {
-	    // 로그인 성공 시 세션에 저장
-	    session.setAttribute("userid", userid);
-	    session.setAttribute("username", rs.getString("mname")); // mname으로 가져오기
+	    // top.jsp의 세션 변수명(mname, mid)과 반드시 일치시켜야 함 [cite: 21]
+	    session.setAttribute("mname", rs.getString("mname")); 
+	    session.setAttribute("mid", rs.getString("mid"));
 	%>
 	    <script>
 	        alert("<%= rs.getString("mname") %>님 환영합니다!");
-	        location.href="list.jsp";
+	        location.href="./index.do"; // 사용자 홈(index.jsp)으로 이동 
 	    </script>
-<%
-    } else {
+	<%
+	} else {
 %>
         <script>
             alert("아이디 또는 비밀번호가 틀립니다.");

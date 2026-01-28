@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="model.*, java.util.*" %>
+
 <%
-    // 1. DAO(Query) 객체 생성 및 목록 가져오기
-    qna_query query = new qna_query();
-    ArrayList<qna_dto> list = query.select_all();
+    // 페이지 번호를 파라미터로 받습니다. (없으면 1페이지)
+    String p = request.getParameter("page");
+    int page_no = (p == null) ? 1 : Integer.parseInt(p);
     
-    // 2. 선생님 가이드: 10개씩 출력 로직은 데이터 출력 확인 후 적용하겠습니다.
+    // 시작 번호 계산 (1페이지면 0번부터, 2페이지면 10번부터...)
+    int start_no = (page_no - 1) * 10;
+    qna_query query = new qna_query();
+    ArrayList<qna_dto> list = query.select_all(start_no);
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,6 +63,27 @@
                } %>
         </tbody>
     </table>
+    
+    
+    <%
+    // 전체 글 개수 가져오기
+    int total_records = query.get_total_count();
+    // 전체 페이지 수 계산 (예: 11개면 2페이지)
+    int total_pages = (int)Math.ceil(total_records / 10.0);
+	%>
+	<div style="text-align:center; margin-top:20px;">
+	    <% for(int i=1; i<=total_pages; i++) { %>
+	        <a href="list.jsp?page=<%= i %>" 
+	           style="margin:0 5px; text-decoration:none; <%= (page_no==i)?"font-weight:bold; color:red;":"" %>">
+	           [<%= i %>]
+	        </a>
+	    <% } %>
+	</div>
+    
+    
+    
+    
+    
     <br>
     <button onclick="location.href='cms/write.jsp'">질문하기</button>
 </body>

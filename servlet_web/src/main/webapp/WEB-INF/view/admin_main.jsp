@@ -1,5 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="model.*, java.util.*" %>
+<%
+    // DB에서 실시간 데이터를 가져오기 위한 준비
+    qna_query q_query = new qna_query();
+    
+    // 테이블명은 사용자님 DB 상황에 맞춰 "member", "subject", "notice" 등으로 가정했습니다.
+    int m_count = q_query.get_total_count_general("member");     // 회원 수
+    int s_count = q_query.get_total_count_general("subject");    // 과목 수
+    int n_count = q_query.get_total_count_general("notice");     // 공지사항
+    int q_count = q_query.get_total_count("");                   // Q&A 전체 개수
+%> 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -27,7 +37,7 @@
                         <div class="stat-icon">👥</div>
                         <div class="stat-info">
                             <h3>회원 수</h3>
-                            <p class="stat-number">256명</p>
+                            <p class="stat-number"><%= m_count %>명</p>
                         </div>
                     </div>
 
@@ -35,7 +45,7 @@
                         <div class="stat-icon">📚</div>
                         <div class="stat-info">
                             <h3>과목 수</h3>
-                            <p class="stat-number">48개</p>
+                            <p class="stat-number"><%= s_count %>개</p>
                         </div>
                     </div>
 
@@ -43,7 +53,7 @@
                         <div class="stat-icon">📢</div>
                         <div class="stat-info">
                             <h3>공지사항</h3>
-                            <p class="stat-number">12개</p>
+                            <p class="stat-number"><%= n_count %>개</p>
                         </div>
                     </div>
 
@@ -51,7 +61,7 @@
                         <div class="stat-icon">❓</div>
                         <div class="stat-info">
                             <h3>Q&A</h3>
-                            <p class="stat-number">34개</p>
+                            <p class="stat-number"><%= q_count %>개</p>
                         </div>
                     </div>
                 </div>
@@ -78,7 +88,8 @@
                     <div class="menu-box">
                         <div class="menu-title">❓ Q&A 관리</div>
                         <p>사용자 문의 답변, 답변 관리</p>
-                        <a href="#" class="menu-link">관리하기</a>
+                        <%-- 링크를 admin_qa.jsp로 연결했습니다 --%>
+                        <a href="admin_qa.jsp" class="menu-link">관리하기</a>
                     </div>
 
                     <div class="menu-box">
